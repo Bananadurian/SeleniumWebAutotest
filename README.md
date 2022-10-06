@@ -1,2 +1,5 @@
 # SeleniumWebAutotest
-自动化项目学习代码
+
+## 1. 简介
+
+学习用的自动化代码
