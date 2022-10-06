@@ -1,4 +1,4 @@
-# 浏览器选项
-BrowserOptions:
-  # args:
-  #   - --headless  # 无头模式
+# # 浏览器选项
+# BrowserOptions:
+#   # args:
+#   #   - --headless  # 无头模式

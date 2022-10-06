@@ -1,18 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from common import read_yaml
+# from common import read_yaml
 import pytest
+import os
 
 
 @pytest.fixture(scope="session", autouse=True)
 def init_webdriver():
     options = webdriver.EdgeOptions()  # 创建Option类
-    browser_options = read_yaml.get_config("BrowserOptions")
-    if browser_options and browser_options.get("args"):
-        args_list = browser_options.get("args")
-        for arg in args_list:
-            options.add_argument(arg)
+    browser_options = os.environ.get(
+        "using_headless")  # 读取jekins配置的环境变量using_headless的值
+    if browser_options:
+        options.add_argument("--headless")
     driver = webdriver.Edge(service=EdgeService(
         EdgeChromiumDriverManager().install()),
                             options=options)
