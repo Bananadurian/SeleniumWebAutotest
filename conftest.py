@@ -12,8 +12,8 @@ def init_webdriver():
     browser_options = os.environ.get(
         "using_headless")  # 读取jekins配置的环境变量using_headless的值
     print(f">>>>>>>> {browser_options}")
-    print(f">>>>>>>> {os.environ}")
-    if browser_options:
+    # print(f">>>>>>>> {os.environ}")
+    if browser_options and browser_options.lower() == "true":
         options.add_argument("--headless")
     driver = webdriver.Edge(service=EdgeService(
         EdgeChromiumDriverManager().install()),
