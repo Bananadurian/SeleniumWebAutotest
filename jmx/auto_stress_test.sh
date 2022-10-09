@@ -29,11 +29,14 @@ do
     cp ${jmx_template_filename} ${jmx_filename}
     
     # 根据系统替换jmx文件的参数thread_num
-    if [["${os_type}"=="Linux"]]; then
-        sed -i "s/thread_num/${num}/g" ${jmx_filename}
-    else
-        sed -i "" "s/thread_num/${num}/g" ${jmx_filename}
-    fi
+    
+    # if [["${os_type}"=="Linux"]]; then
+    # if [[1==1]]; then
+    #     sed -i "s/thread_num/${num}/g" ${jmx_filename}
+    # else
+    #     sed -i "" "s/thread_num/${num}/g" ${jmx_filename}
+    # fi
+    sed -i "s/thread_num/${num}/g" ${jmx_filename}
     echo "生成jmx文件: ${jmx_filename}"
 
     # 执行脚本生成结果jtl文件，并生成测试报告
